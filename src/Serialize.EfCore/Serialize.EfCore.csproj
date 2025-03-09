@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <Description>C# library to serialize LINQ expressions</Description>
+    <Description>C# library to serialize EfCore expressions</Description>
     <AssemblyTitle>Serialize.EfCore</AssemblyTitle>
     <AssemblyName>Serialize.EfCore</AssemblyName>
-    <Authors>Sascha Kiefer</Authors>
+    <Authors>John Gold</Authors>
     <Copyright>Copyright © 2012-2025</Copyright>
     <AssemblyOriginatorKeyFile>Serialize.EfCore Signing Key.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
@@ -12,12 +12,11 @@
     <PackageTags>linq;serialize</PackageTags>
     <PackageReleaseNotes>
 	  - support for .NET 9.0
-	  - remove BinarySerializer
 	</PackageReleaseNotes>
-    <PackageProjectUrl>https://github.com/esskar/Serialize.EfCore</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/johngoldinc/Serialize.EfCore</PackageProjectUrl>
     <PackageLicenseUrl></PackageLicenseUrl>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/esskar/Serialize.EfCore</RepositoryUrl>
+    <RepositoryUrl>https://github.com/johngoldinc/Serialize.EfCore</RepositoryUrl>
     <DefaultLanguage>en-us</DefaultLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Configurations>Debug;Release;Debug Optimize Size;Release Optimize Size</Configurations>
