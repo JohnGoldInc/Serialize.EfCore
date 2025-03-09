@@ -1,0 +1,29 @@
+name: Nupkg
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Build version (xxx)'     
+        required: true
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.100'
+
+    - name: Build
+      run: dotnet build src\Serialize.EfCore\Serialize.EfCore.csproj --configuration Release /p:Version=${{ github.event.inputs.version }}
+
+    - name: Pack
+      run: dotnet pack src\Serialize.EfCore\Serialize.EfCore.csproj --configuration Release /p:Version=${{ github.event.inputs.version }} --no-build --output nupack
+
+    - name: Publish NuGet
+      if: startsWith(github.ref, 'refs/heads/master')
+      run: dotnet nuget push **\*.nupkg --source 'https://api.nuget.org/v3/index.json' --api-key ${{ secrets.NUGET }} --skip-duplicate
