@@ -11,9 +11,9 @@ dotnet_csproj:
   file_version: '{version}'
   informational_version: '{version}'
 before_build:
-  - nuget restore src\Serialize.Linq.sln
+  - nuget restore src\Serialize.EfCore.sln
 build:
-  project: src\Serialize.Linq.sln
+  project: src\Serialize.EfCore.sln
 artifacts:  
   - path: '**\*.nupkg'
 deploy:

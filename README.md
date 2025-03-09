@@ -1,34 +1,29 @@
-# Serialize.Linq
+# Serialize.EfCore
 
-Serialize.Linq is a .NET library that provides functionality to serialize and deserialize LINQ expressions.
+Serialize.EfCore is a .NET library that provides functionality to serialize and deserialize EfCore LINQ expressions.
 This library is useful in scenarios where you need to send LINQ expressions over the wire or persist them in a database.
 
 ## Features
 
-- Serialize and deserialize LINQ expressions to XML, JSON, and binary formats.
+- Serialize and deserialize EfCore expressions to XML, and JSON.
 - Supports various types of expressions, including binary, unary, member access, lambda, and more.
 - Extensible design that allows you to add support for custom expressions.
 
 ## Breaking Changes
 
-### Version 4.0
-
-- **BinaryFormatSerializer** has been removed due to security concerns with `BinaryFormatter`. For more details, see the [BinaryFormatter Security Guide](https://aka.ms/binaryformatter).
-
-
 ## Getting Started
 
 ### Installation
 
-You can install Serialize.Linq via [NuGet][1]:
+You can install Serialize.EfCore via [NuGet][1]:
 
 ```
-Install-Package Serialize.Linq
+Install-Package Serialize.EfCore
 ```
 
 ### Usage
 
-Here's a simple example of how to use Serialize.Linq:
+Here's a simple example of how to use Serialize.EfCore:
 
 ```csharp
 // Create an expression
@@ -40,13 +35,17 @@ var serializer = new ExpressionSerializer(new JsonSerializer());
 // Serialize the expression
 string serializedExpression = serializer.SerializeText(expression);
 
+//Set DbContext
+var context = new ExpressionContext();
+context.DbContext = new DbContext(new DbContextOptions<DbContext>());
+
 // Deserialize the expression
-var deserializedExpression = serializer.DeserializeText(serializedExpression);
+var deserializedExpression = serializer.DeserializeText(serializedExpression, context);
 ```
 
 ## Contributing
 
-We welcome contributions to Serialize.Linq!
+We welcome contributions to Serialize.EfCore!
 If you'd like to contribute, please fork the repository, make your changes, and submit a pull request.
 If you're not sure where to start, take a look at our open issues.
 
@@ -56,20 +55,14 @@ You can always [buy me a coffee :coffee:][2].
 
 ## Testing
 
-Serialize.Linq has a comprehensive test suite. You can run the tests using your preferred test runner.
+Serialize.EfCore has a comprehensive test suite. You can run the tests using your preferred test runner.
 
 ## Supported Platforms (or known to work with)
 
 - .NET 9.0
 - .NET 8.0
-- .NET 7.0
-- .NET 6.0
-- .NET 4.8
-- .NET 4.8.1
 
 ## License
 
-Serialize.Linq is licensed under the MIT License. See the LICENSE file for more details.
+Serialize.EfCore is licensed under the MIT License. See the LICENSE file for more details.
 
-[1]: http://nuget.org/packages/Serialize.Linq
-[2]: https://www.buymeacoffee.com/esskar
