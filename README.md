@@ -51,8 +51,6 @@ If you're not sure where to start, take a look at our open issues.
 
 For bugs: make sure you create a unit test, so it is easier for me to reproduce and fix it.
 
-You can always [buy me a coffee :coffee:][2].
-
 ## Testing
 
 Serialize.EfCore has a comprehensive test suite. You can run the tests using your preferred test runner.
